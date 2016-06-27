@@ -1,6 +1,6 @@
 # spring_init
 
-Spring MVC 기본 셋텡 with Maven으로 기본 셋팅
+Spring MVC with Maven으로 기본 셋팅
   - Spring 4.3.0
   -  JDK 1.8
   .
