@@ -8,9 +8,9 @@ Spring MVC 기본 셋텡 with Maven으로 기본 셋팅
   .
 
 
-(Intellij 15기준)
-1. Empty Project 생성
-2. Maven Module 추가
-3. 'Create from archtype' 체크
-4. 'maven-archtype-webapp' 선택
+(Intellij 15기준)<br>
+1. Empty Project 생성<br>
+2. Maven Module 추가<br>
+3. 'Create from archtype' 체크<br>
+4. 'maven-archtype-webapp' 선택<br>
   
