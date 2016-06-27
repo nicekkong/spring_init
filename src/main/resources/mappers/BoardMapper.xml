@@ -6,6 +6,7 @@
 
 <mapper namespace="com.nicekkong.mapper.BoardMapper">
 
+<!--
 
     <insert id="create">
         INSERT INTO tbl_board(title, content, writer)
@@ -55,5 +56,6 @@
          LIMIT #{page}, #{perPageNum}
          ]]>
     </select>
+-->
 
 </mapper>
