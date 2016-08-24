@@ -1,9 +1,7 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: nicekkong
-  Date: 2016. 6. 28.
-  Time: 오전 2:08
-  To change this template use File | Settings | File Templates.
+  User  : nicekkong@gmail.com
+  Create: 2016. 8. 23. 오후 11:28
+  Desc : 
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
@@ -14,8 +12,6 @@
     <title>Insert title here</title>
 </head>
 <body>
-${message}
-
-
+    <h2>Hello ${msg}</h2>
 </body>
 </html>
