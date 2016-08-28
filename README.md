@@ -3,9 +3,7 @@
 Spring MVC with Maven으로 기본 셋팅
   - Spring 4.3.0
   -  JDK 1.8
-  .
-  .
-  .
+
 
 
 (Intellij 15기준)<br>
@@ -20,4 +18,6 @@ Spring MVC with Maven으로 기본 셋팅
 - DataSource 설정 추가
 - Mybatis 설정 추가
 - JUnit 예제 추가
+
+
 

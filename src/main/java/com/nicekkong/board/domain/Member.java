@@ -10,7 +10,7 @@ package com.nicekkong.board.domain;
 
 import java.sql.Date;
 
-public class TblMember {
+public class Member {
 
     private String userId;
     private String userPw;
@@ -23,7 +23,7 @@ public class TblMember {
         return email;
     }
 
-    public TblMember setEmail(String email) {
+    public Member setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -32,7 +32,7 @@ public class TblMember {
         return regDate;
     }
 
-    public TblMember setRegDate(Date regDate) {
+    public Member setRegDate(Date regDate) {
         this.regDate = regDate;
         return this;
     }
@@ -41,7 +41,7 @@ public class TblMember {
         return updDate;
     }
 
-    public TblMember setUpdDate(Date updDate) {
+    public Member setUpdDate(Date updDate) {
         this.updDate = updDate;
         return this;
     }
@@ -50,7 +50,7 @@ public class TblMember {
         return userId;
     }
 
-    public TblMember setUserId(String userId) {
+    public Member setUserId(String userId) {
         this.userId = userId;
         return this;
     }
@@ -59,7 +59,7 @@ public class TblMember {
         return userName;
     }
 
-    public TblMember setUserName(String userName) {
+    public Member setUserName(String userName) {
         this.userName = userName;
         return this;
     }
@@ -68,7 +68,7 @@ public class TblMember {
         return userPw;
     }
 
-    public TblMember setUserPw(String userPw) {
+    public Member setUserPw(String userPw) {
         this.userPw = userPw;
         return this;
     }
