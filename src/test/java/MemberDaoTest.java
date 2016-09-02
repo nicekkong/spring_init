@@ -1,5 +1,5 @@
 import com.nicekkong.board.domain.Member;
-import com.nicekkong.board.persistance.MemberDao;
+import com.nicekkong.board.dao.MemberDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

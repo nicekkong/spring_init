@@ -6,7 +6,6 @@
 
 <mapper namespace="com.nicekkong.mapper.BoardMapper">
 
-<!--
 
     <insert id="create">
         INSERT INTO tbl_board(title, content, writer)
@@ -21,7 +20,7 @@
 
     <update id="update">
         UPDATE  tbl_board SET title= #{title}, content=#{content}, writer=#{writer}
-        WHERE  bno = #{bno}
+         WHERE  bno = #{bno}
     </update>
 
     <delete id="delete">
@@ -37,7 +36,7 @@
          ]]>
     </select>
 
-    <select id="listPage" resultType="Board" >
+    <select id="listPage" resultType="com.nicekkong.board.domain.Board" >
         <![CDATA[
         SELECT  bno, title, content, writer, regdate, viewcnt
           FROM  tbl_board
@@ -47,7 +46,7 @@
          ]]>
     </select>
 
-    <select id="listCriteria" resultType="Board" >
+    <select id="listCriteria" resultType="com.nicekkong.board.domain.Board" >
         <![CDATA[
         SELECT  bno, title, content, writer, regdate, viewcnt
           FROM  tbl_board
@@ -56,6 +55,5 @@
          LIMIT #{page}, #{perPageNum}
          ]]>
     </select>
--->
 
 </mapper>
