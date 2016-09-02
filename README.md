@@ -20,4 +20,6 @@ Spring MVC with Maven으로 기본 셋팅
 - JUnit 예제 추가
 
 
+- 잔디 연동 테스트를 위한 commit
+
 
