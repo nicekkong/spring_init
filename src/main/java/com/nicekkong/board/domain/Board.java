@@ -15,8 +15,8 @@ public class Board {
     private String title;
     private String content;
     private String writer;
-    private Date regdate;
-    private int viewcnt;
+    private Date regDate;
+    private int viewCnt;
 
 
     public int getBno() {
@@ -55,21 +55,21 @@ public class Board {
         return this;
     }
 
-    public Date getRegdate() {
-        return regdate;
+    public Date getRegDate() {
+        return regDate;
     }
 
-    public Board setRegdate(Date regdate) {
-        this.regdate = regdate;
+    public Board setRegDate(Date regDate) {
+        this.regDate = regDate;
         return this;
     }
 
-    public int getViewcnt() {
-        return viewcnt;
+    public int getViewCnt() {
+        return viewCnt;
     }
 
-    public Board setViewcnt(int viewcnt) {
-        this.viewcnt = viewcnt;
+    public Board setViewCnt(int viewCnt) {
+        this.viewCnt = viewCnt;
         return this;
     }
 
@@ -80,8 +80,8 @@ public class Board {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", writer='" + writer + '\'' +
-                ", regdate=" + regdate +
-                ", viewcnt=" + viewcnt +
+                ", regDate=" + regDate +
+                ", viewCnt=" + viewCnt +
                 '}';
     }
 }

@@ -13,7 +13,7 @@
     </insert>
 
     <select id="read" resultType="com.nicekkong.board.domain.Board">
-        SELECT  bno, title, content, writer, regdate, viewcnt
+        SELECT  bno, title, content, writer, regDate, viewCnt
         FROM  tbl_board
         WHERE  bno = #{bno}
     </select>
@@ -29,29 +29,29 @@
 
     <select id="listAll" resultType="com.nicekkong.board.domain.Board" >
         <![CDATA[
-        SELECT  bno, title, content, writer, regdate, viewcnt
+        SELECT  bno, title, content, writer, regDate, viewCnt
           FROM  tbl_board
          WHERE  bno > 0
-         ORDER BY bno desc, regdate DESC
+         ORDER BY bno desc, regDate DESC
          ]]>
     </select>
 
     <select id="listPage" resultType="com.nicekkong.board.domain.Board" >
         <![CDATA[
-        SELECT  bno, title, content, writer, regdate, viewcnt
+        SELECT  bno, title, content, writer, regDate, viewCnt
           FROM  tbl_board
          WHERE  bno > 0
-         ORDER BY bno desc, regdate DESC
+         ORDER BY bno desc, regDate DESC
          LIMIT #{page}, 10
          ]]>
     </select>
 
     <select id="listCriteria" resultType="com.nicekkong.board.domain.Board" >
         <![CDATA[
-        SELECT  bno, title, content, writer, regdate, viewcnt
+        SELECT  bno, title, content, writer, regDate, viewCnt
           FROM  tbl_board
          WHERE  bno > 0
-         ORDER BY bno desc, regdate DESC
+         ORDER BY bno desc, regDate DESC
          LIMIT #{page}, #{perPageNum}
          ]]>
     </select>

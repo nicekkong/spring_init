@@ -28,7 +28,7 @@
     
   </head>
       <!-- jQuery 2.1.4 -->
-    <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="/resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
     
   <body class="skin-blue sidebar-mini">
     <div class="wrapper">
@@ -39,7 +39,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Zerock</b> PROJECT</span>
+          <span class="logo-lg"><b>JustEX</b> PROJECT</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">

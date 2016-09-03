@@ -45,4 +45,30 @@ public class SampleControllerTest {
     public void testDoA() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/doE"));
     }
+
+
+
+    @Test
+    public void testException() {
+
+        try {
+            logger.info(">>>>>>>>>>testException!!!!");
+            callA();
+            throw new Exception();
+        } catch (Exception e) {
+
+            logger.info("1111111111111");
+
+        }
+    }
+
+    private static void callA() throws Exception {
+        try {
+
+            throw new NumberFormatException();
+        }catch (NumberFormatException e) {
+
+            logger.info("2222222222222222");
+        }
+    }
 }
