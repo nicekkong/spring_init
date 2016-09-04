@@ -9,6 +9,7 @@ package com.nicekkong.board.service;
 
 import com.nicekkong.board.dao.BoardDao;
 import com.nicekkong.board.domain.Board;
+import com.nicekkong.board.domain.Criteria;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,11 +50,40 @@ public class BoardServiceImpl implements BoardService {
         return dao.listAll();
     }
 
-    public static int doA(int a, int b) {
-        Integer c = new Integer(a);
+    @Override
+    public List<Board> listCriteria(Criteria cri) throws Exception {
 
-        return a+b+c;
+//        logger.info(">>>>>>>> Before <<<<<<<<<<");
+//        logger.info("page : " + cri.getPage());
+//        logger.info("perPageNum : " + cri.getPerPageNum());
+//
+        calcPageForQuery(cri);
+//
+//        logger.info(">>>>>>>> After <<<<<<<<<<");
+//        logger.info("page : " + cri.getPage());
+//        logger.info("perPageNum : " + cri.getPerPageNum());
+
+        return dao.listCritera(calcPageForQuery(cri));
     }
 
+    @Override
+    public int listCountCriteria(Criteria cri) throws Exception {
+        calcPageForQuery(cri);
+        return dao.countPaging(calcPageForQuery(cri));
+    }
 
+    /**
+     * page를 쿼리에 적합한 변수로 변환한다
+     * @param cri 페이지 정보 객체
+     */
+    private Criteria calcPageForQuery(Criteria cri) {
+        Criteria criForQuery = new Criteria();
+        if(cri.getPage() <= 1) {
+            criForQuery.setPage(0);
+        } else {
+            criForQuery.setPage((cri.getPage()-1) * cri.getPerPageNum());
+        }
+
+        return criForQuery;
+    }
 }

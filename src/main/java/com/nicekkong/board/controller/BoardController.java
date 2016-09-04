@@ -8,12 +8,15 @@
 package com.nicekkong.board.controller;
 
 import com.nicekkong.board.domain.Board;
+import com.nicekkong.board.domain.Criteria;
+import com.nicekkong.board.domain.PageMaker;
 import com.nicekkong.board.service.BoardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,7 +90,7 @@ public class BoardController {
         return "redirect:/board/listAll";
     }
 
-    @RequestMapping(value = "/modify", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify", method = RequestMethod.GET)
     public void modifyGET(int bno, Model model) throws Exception {
         model.addAttribute("board", boardService.read(bno));
     }
@@ -102,4 +105,66 @@ public class BoardController {
 
         return "redirect:/board/listAll";
     }
+
+    @RequestMapping(value = "/listCri", method = RequestMethod.GET)
+    public void listAll(Criteria cri, Model model) throws Exception {
+
+        logger.info("show list Page with Criteria......................");
+        logger.info("[PARAM]" + cri.toString());
+
+        model.addAttribute("boardList", boardService.listCriteria(cri));
+    }
+
+    @RequestMapping(value = "/listPage", method = RequestMethod.GET)
+    public void listPage(Criteria cri, Model model) throws Exception {
+        logger.info(">>>> listPage() : " + cri.toString());
+        model.addAttribute("boardList", boardService.listCriteria(cri));
+        PageMaker pageMaker = new PageMaker();
+        pageMaker.setCri(cri);
+        pageMaker.setTotalCount(boardService.listCountCriteria(cri));
+
+        model.addAttribute("pageMaker", pageMaker);
+    }
+
+    @RequestMapping(value = "/readPage", method = RequestMethod.GET)
+    public void readPage(@RequestParam("bno") int bno,
+                         @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+        Board board = boardService.read(bno);
+
+        model.addAttribute("board", board);
+        model.addAttribute("page", cri.getPage());
+        model.addAttribute("perPageNum", cri.getPage());
+    }
+
+
+    @RequestMapping(value = "/removePage", method = RequestMethod.POST)
+    public String removePage(@RequestParam("bno")int bno,
+                             @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) throws Exception {
+        boardService.remove(bno);
+
+        rttr.addFlashAttribute("page", cri.getPage());
+        rttr.addFlashAttribute("perPageNum", cri.getPage());
+        rttr.addFlashAttribute("msg", "SUCCESS");
+
+        return "redirect:/board/listAll";
+    }
+
+
+    @RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
+    public void modifyPageGET(int bno, Model model) throws Exception {
+        model.addAttribute("board", boardService.read(bno));
+    }
+
+    @RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
+    public String modifyPagePOST(Board board, RedirectAttributes rttr) throws Exception {
+
+        logger.info("modify post......");
+
+        boardService.modify(board);
+        rttr.addFlashAttribute("msg", "SUCCESS");
+
+        return "redirect:/board/listAll";
+    }
+
+
 }

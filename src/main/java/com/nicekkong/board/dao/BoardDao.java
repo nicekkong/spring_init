@@ -9,6 +9,7 @@
 package com.nicekkong.board.dao;
 
 import com.nicekkong.board.domain.Board;
+import com.nicekkong.board.domain.Criteria;
 
 import java.util.List;
 
@@ -19,5 +20,9 @@ public interface BoardDao {
     public void update(Board board) throws Exception;
     public void delete(int vno) throws Exception;
     public List<Board> listAll() throws Exception;
+    public List<Board> listPage(int page) throws Exception;
+    public List<Board> listCritera(Criteria cri) throws Exception;
+    public int countPaging(Criteria cri) throws Exception;
+
 
 }

@@ -8,6 +8,7 @@
 package com.nicekkong.board.dao;
 
 import com.nicekkong.board.domain.Board;
+import com.nicekkong.board.domain.Criteria;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -45,5 +46,26 @@ public class BoardDaoImpl implements BoardDao {
     @Override
     public List<Board> listAll() throws Exception {
         return session.selectList(namespace + ".listAll");
+    }
+
+    @Override
+    public List<Board> listPage(int page) throws Exception {
+
+        if(page <= 0){
+            page = 1;
+        }
+        page = (page-1) * 10;
+
+        return session.selectList(namespace + ".listPage", page);
+    }
+
+    @Override
+    public List<Board> listCritera(Criteria cri) throws Exception {
+        return session.selectList(namespace + ".listCriteria", cri);
+    }
+
+    @Override
+    public int countPaging(Criteria cri) throws Exception {
+        return session.selectOne(namespace + ".countPaging", cri);
     }
 }

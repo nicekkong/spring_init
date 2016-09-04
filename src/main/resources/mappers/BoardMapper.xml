@@ -12,7 +12,7 @@
         VALUES (#{title}, #{content}, #{writer})
     </insert>
 
-    <select id="read" resultType="com.nicekkong.board.domain.Board">
+    <select id="read" resultType="Board">
         SELECT  bno, title, content, writer, regDate, viewCnt
         FROM  tbl_board
         WHERE  bno = #{bno}
@@ -27,7 +27,7 @@
         DELETE FROM tbl_board WHERE bno=#{bno}
     </delete>
 
-    <select id="listAll" resultType="com.nicekkong.board.domain.Board" >
+    <select id="listAll" resultType="Board" >
         <![CDATA[
         SELECT  bno, title, content, writer, regDate, viewCnt
           FROM  tbl_board
@@ -36,7 +36,7 @@
          ]]>
     </select>
 
-    <select id="listPage" resultType="com.nicekkong.board.domain.Board" >
+    <select id="listPage" parameterType="Integer" resultType="Board" >
         <![CDATA[
         SELECT  bno, title, content, writer, regDate, viewCnt
           FROM  tbl_board
@@ -46,7 +46,7 @@
          ]]>
     </select>
 
-    <select id="listCriteria" resultType="com.nicekkong.board.domain.Board" >
+    <select id="listCriteria" parameterType="Criteria" resultType="Board" >
         <![CDATA[
         SELECT  bno, title, content, writer, regDate, viewCnt
           FROM  tbl_board
@@ -54,6 +54,14 @@
          ORDER BY bno desc, regDate DESC
          LIMIT #{page}, #{perPageNum}
          ]]>
+    </select>
+
+    <select id="countPaging" resultType="int">
+        <![CDATA[
+        SELECT  count(bno)
+          FROM  tbl_board
+         WHERE  bno > 0
+        ]]>
     </select>
 
 </mapper>
