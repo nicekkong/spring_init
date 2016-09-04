@@ -25,8 +25,8 @@
                 <form role="form" method="post">
 
                     <input type='hidden' name='bno' value="${board.bno}">
-                    <input type="hidden" name="page" value="${page}">
-                    <input type="hidden" name="perPage" value="${perPageNum}">
+                    <input type="hidden" name="page" value="${cri.page}">
+                    <input type="hidden" name="perPageNum" value="${cri.perPageNum}">
 
                 </form>
 
@@ -59,20 +59,24 @@
 
                         console.log(formObj);
 
+                        // 수정 처리
                         $(".btn-warning").on("click", function(){
-                            formObj.attr("action", "/board/modify");
+                            formObj.attr("action", "/board/modifyPage");
                             formObj.attr("method", "get");
                             formObj.submit();
                         });
 
+                        // 삭제 처리
                         $(".btn-danger").on("click", function(){
 
                             if(confirm("해당 글을 정말 삭제 하시겠습니까?")) {
-                                formObj.attr("action", "/board/remove");
+                                formObj.attr("method", "post");
+                                formObj.attr("action", "/board/removePage");
                                 formObj.submit();
                             }
                         });
 
+                        // 전체 목록 돌아가기
                         $(".btn-primary").on("click", function(){
                             //self.location = "/board/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
                             formObj.attr("method", "get");

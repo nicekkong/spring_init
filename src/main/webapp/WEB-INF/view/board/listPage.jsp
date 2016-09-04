@@ -12,6 +12,12 @@
         <!-- left column -->
         <div class="col-md-12">
             <!-- general form elements -->
+            <form role="form" method="post">
+                <input type='hidden' name='bno' value="${board.bno}">
+                <input type="hidden" name="page" value="${cri.page}">
+                <input type="hidden" name="perPageNum" value="${cri.perPageNum}">
+            </form>
+
 
             <div class="box">
                 <div class="box-header with-border">
@@ -21,7 +27,7 @@
 
                     <table class="table table-bordered">
                         <tr>
-                            <th style="width: 10px">BNO</th>
+                            <th style="width: 10px">NO.</th>
                             <th>TITLE</th>
                             <th>WRITER</th>
                             <th>REGDATE</th>
@@ -110,6 +116,8 @@
 
     if(result == 'SUCCESS'){
         alert("처리가 완료되었습니다.");
+
+        //location.href = "/board/listPage?page=${page}&perPageNum=${perPageNum}";
     }
 </script>
 <%@include file="/WEB-INF/view/include/footer.jsp"%>

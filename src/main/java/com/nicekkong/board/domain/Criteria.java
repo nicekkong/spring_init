@@ -22,8 +22,14 @@ public class Criteria {
 
 //        logger.info(">>>>>>>>>>>>>>> call : Criteria()");
 
-        this.page = 0;
+        this.page = 1;
         this.perPageNum = 10;
+    }
+
+
+    public Criteria(int page, int perPageNum) {
+        this.page = page;
+        this.perPageNum = perPageNum;
     }
 
     public void setPage(int page) {
