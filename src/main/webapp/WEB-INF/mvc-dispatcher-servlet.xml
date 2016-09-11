@@ -22,4 +22,21 @@
     <property name="suffix" value=".jsp" />
 </bean>
 
+<bean id="sampleInterceptor" class="com.nicekkong.board.interceptor.SampleInterceptor" />
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/interceptorA"/>
+            <mvc:mapping path="/interceptorB"/>
+            <ref bean="sampleInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean id="loginInterceptor" class="com.nicekkong.board.interceptor.LoginInterceptor" />
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/loginPOST"/>
+            <ref bean="loginInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>
